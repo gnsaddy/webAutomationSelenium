@@ -1,6 +1,7 @@
-from selenium import webdriver
-import unittest
 import time
+import unittest
+
+from selenium import webdriver
 
 
 class CountWidget(unittest.TestCase):
@@ -18,7 +19,15 @@ class CountWidget(unittest.TestCase):
         radio3 = self.driver.find_elements_by_css_selector('input[name="gender"]')
         count = 0
 
-        for i in radio1 and radio2 and radio3:
+        for i in radio1:
+            count += 1
+        print("radio button count = ", count)
+
+        for i in radio1:
+            count += 1
+        print("radio button count = ", count)
+
+        for i in radio1:
             count += 1
         print("radio button count = ", count)
         time.sleep(5)
@@ -29,4 +38,3 @@ class CountWidget(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
