@@ -1,13 +1,15 @@
-import time
+import os
 import unittest
-
+import time
 from selenium import webdriver
 
+chromeDriver = "../Drivers/x32/chromedriver.exe"
 
-class CountWidget(unittest.TestCase):
+
+class ChromeLaunch(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("../Drivers/x32/chromedriver.exe")
+        self.driver = webdriver.Chrome(chromeDriver)
         driver = self.driver
         time.sleep(2)
         driver.maximize_window()
@@ -23,11 +25,11 @@ class CountWidget(unittest.TestCase):
             count += 1
         print("radio button count = ", count)
 
-        for i in radio1:
+        for i in radio2:
             count += 1
         print("radio button count = ", count)
 
-        for i in radio1:
+        for i in radio3:
             count += 1
         print("radio button count = ", count)
         time.sleep(5)
