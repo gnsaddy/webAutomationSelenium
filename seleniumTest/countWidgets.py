@@ -1,14 +1,32 @@
 from selenium import webdriver
-import os
+import unittest
+import time
 
-driver = webdriver.Chrome("../Drivers/x32/chromedriver.exe")
-driver.get("https://gnsaddy.github.io/webAutomationSelenium/countWidgets.html")
 
-radio = driver.find_elements_by_css_selector('input[name="gender]')
-count = 0
+class CountWidget(unittest.TestCase):
 
-for i in radio:
-    count += 1
+    def setUp(self):
+        self.driver = webdriver.Chrome("../Drivers/x32/chromedriver.exe")
+        driver = self.driver
+        time.sleep(2)
+        driver.maximize_window()
 
-print("radio button count = ", count)
-driver.quit()
+    def test_chrome_fn(self):
+        self.driver.get("https://gnsaddy.github.io/webAutomationSelenium/countWidgets.html")
+        radio1 = self.driver.find_elements_by_css_selector('input[name="gender"]')
+        radio2 = self.driver.find_elements_by_css_selector('input[name="gender"]')
+        radio3 = self.driver.find_elements_by_css_selector('input[name="gender"]')
+        count = 0
+
+        for i in radio1:
+            count += 1
+        print("radio button count = ", count)
+        time.sleep(5)
+
+    # def tearDown(self):
+    #     pass
+
+
+if __name__ == "__main__":
+    unittest.main()
+
