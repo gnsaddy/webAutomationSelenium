@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about.php">About</a>
+                    <a class="nav-link" href="./tutorial.html">Tutorial</a>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Sign In</h5>
-                    <h3 class="login-heading mb-4">Welcome back!</h3>
+                    <h3 class="login-heading mb-4 text-center">Welcome back!</h3>
                     <form method="post">
                         <div class="form-label-group">
                             <input type="email" id="inputEmail" name="mail" class="form-control" placeholder="Email address" required autofocus>
@@ -84,6 +84,7 @@
         let password = document.getElementById("inputPassword").value;
         if (email === "aditya@gmail.com" && password === "testing") {
             alert("Validation done!!!")
+            window.location = './countWidgets.html'
         } else {
             alert("Authentication failed!!!")
         }

@@ -22,8 +22,9 @@ class ChromeLaunch(unittest.TestCase):
         time.sleep(2)
         loginEmail.send_keys("aditya@gmail.com")
         loginPass.send_keys("testing")
+        btn = self.driver.find_element_by_xpath('//*[@id="btnLogin"]')
+        btn.click()
         time.sleep(5)
-        btn = self.driver.find_element_by_xpath('/html/body/div/div/div/div/div/form/input')
 
     # def tearDown(self):
     #     pass
