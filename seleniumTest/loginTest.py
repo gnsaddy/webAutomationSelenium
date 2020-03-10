@@ -17,15 +17,16 @@ class ChromeLaunch(unittest.TestCase):
 
     def test_chrome_fn(self):
         self.driver.get("https://gnsaddy.github.io/webAutomationSelenium/")
-        loginEmail = self.driver.find_element_by_xpath("/html/body/div/div[3]/div[1]/input[1]")
-        loginPass = self.driver.find_element_by_xpath("/html/body/div/div[3]/div[1]/input[2]")
-
-        loginEmail.send_keys("aditya.x510@gmail.com")
-        loginPass.send_keys("testing123")
+        loginEmail = self.driver.find_element_by_xpath('//*[@id="inputEmail"]')
+        loginPass = self.driver.find_element_by_xpath('//*[@id="inputPassword"]')
+        time.sleep(2)
+        loginEmail.send_keys("aditya@gmail.com")
+        loginPass.send_keys("testing")
         time.sleep(5)
+        btn = self.driver.find_element_by_xpath('/html/body/div/div/div/div/div/form/input')
 
-    def tearDown(self):
-        pass
+    # def tearDown(self):
+    #     pass
 
 
 if __name__ == "__main__":
