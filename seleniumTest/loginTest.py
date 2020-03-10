@@ -6,7 +6,7 @@ from selenium import webdriver
 chromeDriver = "../Drivers/x32/chromedriver.exe"
 
 
-class COuntWidget(unittest.TestCase):
+class LoginTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome(chromeDriver)
@@ -16,6 +16,7 @@ class COuntWidget(unittest.TestCase):
 
     def test_chrome_fn(self):
         self.driver.get("https://gnsaddy.github.io/webAutomationSelenium/")
+
         loginEmail = self.driver.find_element_by_xpath('//*[@id="inputEmail"]')
         loginPass = self.driver.find_element_by_xpath('//*[@id="inputPassword"]')
         time.sleep(2)
@@ -23,9 +24,11 @@ class COuntWidget(unittest.TestCase):
         loginPass.send_keys("testing")
         btn = self.driver.find_element_by_xpath('//*[@id="btnLogin"]')
         btn.click()
+        time.sleep(3)
         print("Valid both Email and password")
-        loginEmail.clear()
-        loginPass.clear()
+        alertJS = self.driver.switch_to.alert
+        print(alertJS.text)
+        alertJS.accept()
         time.sleep(5)
 
     def test_chrome_fn1(self):
@@ -37,9 +40,11 @@ class COuntWidget(unittest.TestCase):
         loginPass.send_keys("testing")
         btn = self.driver.find_element_by_xpath('//*[@id="btnLogin"]')
         btn.click()
+        time.sleep(3)
         print("Email not correct and password correct")
-        loginEmail.clear()
-        loginPass.clear()
+        alertJS = self.driver.switch_to.alert
+        print(alertJS.text)
+        alertJS.accept()
         time.sleep(5)
 
     def test_chrome_fn2(self):
@@ -51,9 +56,11 @@ class COuntWidget(unittest.TestCase):
         loginPass.send_keys("wrong")
         btn = self.driver.find_element_by_xpath('//*[@id="btnLogin"]')
         btn.click()
+        time.sleep(3)
         print("Email correct and password incorrect")
-        loginEmail.clear()
-        loginPass.clear()
+        alertJS = self.driver.switch_to.alert
+        print(alertJS.text)
+        alertJS.accept()
         time.sleep(5)
 
     def test_chrome_fn3(self):
@@ -65,7 +72,11 @@ class COuntWidget(unittest.TestCase):
         loginPass.send_keys("wrong")
         btn = self.driver.find_element_by_xpath('//*[@id="btnLogin"]')
         btn.click()
+        time.sleep(3)
         print("Email and password both incorrect")
+        alertJS = self.driver.switch_to.alert
+        print(alertJS.text)
+        alertJS.accept()
         time.sleep(5)
 
     def tearDown(self):
