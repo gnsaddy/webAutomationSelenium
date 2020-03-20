@@ -1,7 +1,7 @@
 from selenium import webdriver
 import os, time
-employee_source_file = "../seleniumTest/Emp1.html"
-employee_destin_file = "../seleniumTest/Emp2.html"
+employee_source_file = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/Emp1.html"
+employee_destin_file = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/Emp2.html"
 def wait_for_user_input(driver):
     print ("waiting for user inputs in web page..")
     while(True):
