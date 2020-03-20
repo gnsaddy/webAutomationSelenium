@@ -5,7 +5,6 @@ from selenium import webdriver
 
 chromeDriver = "../Drivers/x32/chromedriver.exe"
 
-
 class LoginTest(unittest.TestCase):
 
     def setUp(self):
@@ -29,6 +28,10 @@ class LoginTest(unittest.TestCase):
         alertJS = self.driver.switch_to.alert
         print(alertJS.text)
         alertJS.accept()
+        timeStr = time.strftime("%Y%m%d = %H%M%S")
+        sImage = "webImages"
+        # taking screenshots
+        self.driver.save_screenshot("../screenShots/" + sImage + timeStr + ".png")
         time.sleep(5)
 
     def test_chrome_fn1(self):
@@ -45,6 +48,10 @@ class LoginTest(unittest.TestCase):
         alertJS = self.driver.switch_to.alert
         print(alertJS.text)
         alertJS.accept()
+        timeStr = time.strftime("%Y%m%d = %H%M%S")
+        sImage = "webImages"
+        # taking screenshots
+        self.driver.save_screenshot("../screenShots/" + sImage + timeStr + ".png")
         time.sleep(5)
 
     def test_chrome_fn2(self):
@@ -61,6 +68,10 @@ class LoginTest(unittest.TestCase):
         alertJS = self.driver.switch_to.alert
         print(alertJS.text)
         alertJS.accept()
+        timeStr = time.strftime("%Y%m%d = %H%M%S")
+        sImage = "webImages"
+        # taking screenshots
+        self.driver.save_screenshot("../screenShots/" + sImage + timeStr + ".png")
         time.sleep(5)
 
     def test_chrome_fn3(self):
@@ -77,6 +88,10 @@ class LoginTest(unittest.TestCase):
         alertJS = self.driver.switch_to.alert
         print(alertJS.text)
         alertJS.accept()
+        timeStr = time.strftime("%Y%m%d = %H%M%S")
+        sImage = "webImages"
+        # taking screenshots
+        self.driver.save_screenshot("../screenShots/" + sImage + timeStr + ".png")
         time.sleep(5)
 
     def tearDown(self):
