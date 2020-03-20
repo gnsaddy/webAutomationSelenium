@@ -6,7 +6,7 @@ from selenium import webdriver
 from xlutils.copy import copy
 
 excel_file_name = "marks.xls"
-student_marks_html_page = "./student.html"
+student_marks_html_page = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/student.html"
 
 
 def read_from_excel(path):
