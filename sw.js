@@ -1,4 +1,4 @@
 // installing service worker
-self.addEventListener('install', event => {
+self.addEventListener('install', evt => {
 	console.log('service worker has been installed ');
 });
