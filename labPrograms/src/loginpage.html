@@ -1,0 +1,65 @@
+<script>
+function val()
+{
+	var log=document.getElementById('User').value;
+	var pass=document.getElementById('Pass').value;
+	if(log==="")
+	{
+		alert("Enter your Username!");
+	}
+	else if(pass==="")
+	{
+		alert("Enter your Password!");				
+	}
+	else
+	{
+		if((log==="admin") && (pass==="admin"))
+		{
+			alert("Valid Username or Password!");
+			document.getElementById('frmlog').action="success.html";
+		}
+		else
+		{
+			alert("Invalid Username or Password!");
+		}
+	}
+}
+
+function chColor1()
+{
+	document.getElementById('main').style.color="white";
+}
+
+function chColor2()
+{
+	document.getElementById('main').style.color="white";
+}
+
+</script>
+
+
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+
+	<body bgcolor="teal">
+		<center><img src="logo.jpg" alt=image height=100 width=100>
+
+			<form id="frmlog" method="GET">
+				<table>
+					<tr>
+						<td><label>Username:</label></td>
+						<td><input type="text" value="" id="User" size="30"/></td>
+					</tr>
+					<tr>
+						<td><label>Password:</label></td>
+						<td><input type="password" value="" id="Pass" size="30"/></td>
+					</tr>
+				</table>			
+				<td><input type="reset" value="Reset" size="15"/></td>	
+				<td><input type="submit" id="btn" value="Login" onclick="val()" size="30"/></td>
+			</form>
+		</center>
+	</body>
+</html>

@@ -10,11 +10,6 @@ student_marks_html_page = "https://gnsaddy.github.io/webAutomationSelenium/selen
 
 
 def read_from_excel(path):
-    """
-    Reads excel sheet from specified path
-    :param path: Path of excel sheet with name.
-    :return: Dictionary of marks with name as the key value.
-    """
     book = xlrd.open_workbook(path)
     first_sheet = book.sheet_by_index(0)  # read the first sheet
     marks_dictionary = OrderedDict()
@@ -79,7 +74,7 @@ def append_to_excel(calculated_results):
     sheet.write(0, c + 2, "Result")  # Add the column 'Result' at the end in excel sheet
     for each_result_value, index in zip(result, range(1, number_of_subjects + 1)):
         sheet.write(index, c + 2, each_result_value)
-    wb.save(excel_file_name)
+    wb.save("results.xls")
     print('Saved excel sheet successfully.')
 
 
