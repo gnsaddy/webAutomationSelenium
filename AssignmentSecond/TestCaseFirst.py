@@ -18,7 +18,7 @@ class TestOpeningGoogle(unittest.TestCase):
         driver.get('http://google.com')
         searchBoxPath = driver.find_element_by_xpath("//input[@role='combobox']")
         # sending request to search in search bar
-        searchBoxPath.send_keys("Selenium using python")
+        searchBoxPath.send_keys("RVCE")
         time.sleep(3)
         searchButtom = driver.find_element_by_css_selector("input[type='submit']")
         searchButtom.click()

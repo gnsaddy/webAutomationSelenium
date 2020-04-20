@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Unittest Results</title>
+    <title>Test Report</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,10 +10,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="text-capitalize">Unittest Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2020-04-16 22:06:09</p>
-                <p class='attribute'><strong>Duration: </strong>16.90 s</p>
-                <p class='attribute'><strong>Summary: </strong>Total: 1, Pass: 0, Error: 1</p>
+                <h2 class="text-capitalize">Test Report</h2>
+                <p class='attribute'><strong>Start Time: </strong>2020-04-17 11:02:53</p>
+                <p class='attribute'><strong>Duration: </strong>31.57 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 1, Error: 1</p>
             </div>
         </div>
         <div class="row">
@@ -21,14 +21,22 @@
                 <table class='table table-hover table-responsive'>
                     <thead>
                         <tr>
-                            <th>__main__.LaunchFacebook</th>
+                            <th>AssignmentSecond.LoadYoutube.LaunchFacebook</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class='warning'>
+                        <tr class='success'>
                             <td class="col-xs-10">test_FacebookTest</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_FacebookTest_correct</td>
                             <td class="col-xs-1">
                                 <span class="label label-warning" style="display:block;width:40px;">Error</span>
                             </td>
@@ -40,8 +48,8 @@
                             <td class="col-xs-9" colspan="3"><p style="color:maroon;">NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[id="pas"]"}
   (Session info: chrome=80.0.3987.163)
 </p><p style="color:maroon;">Traceback (most recent call last):
-  File ".\LoadYoutube.py", line 21, in test_FacebookTest
-    password = driver.find_element_by_id("pas")
+  File "E:\workspace\webAutomationSelenium\AssignmentSecond\LoadYoutube.py", line 35, in test_FacebookTest_correct
+    password = driver.find_element_by_id("pas")  # ("pass")
   File "C:\Anaconda\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
     return self.find_element(by=By.ID, value=id_)
   File "C:\Anaconda\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
@@ -58,7 +66,7 @@ selenium.common.exceptions.NoSuchElementException: Message: no such element: Una
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 1, Pass: 0, Error: 1 -- Duration: 16.90 s
+                                Total: 2, Pass: 1, Error: 1 -- Duration: 31.57 s
                             </td>
                         </tr>
                     </tbody>

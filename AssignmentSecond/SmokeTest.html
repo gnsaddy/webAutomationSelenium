@@ -1,15 +1,16 @@
 
 Running tests... 
 ----------------------------------------------------------------------
- test_Google (AssignmentSecond.TestCaseFirst.TestOpeningGoogle) ... OK (19.006228)s
- test_FacebookTest (AssignmentSecond.LoadYoutube.LaunchFacebook) ... ERROR (15.576599)s
+ test_Google (AssignmentSecond.TestCaseFirst.TestOpeningGoogle) ... OK (19.466011)s
+ test_FacebookTest (AssignmentSecond.LoadYoutube.LaunchFacebook) ... OK (16.373083)s
+ test_FacebookTest_correct (AssignmentSecond.LoadYoutube.LaunchFacebook) ... ERROR (15.194160)s
 
 ======================================================================
-ERROR [15.576599s]: AssignmentSecond.LoadYoutube.LaunchFacebook.test_FacebookTest
+ERROR [15.194160s]: AssignmentSecond.LoadYoutube.LaunchFacebook.test_FacebookTest_correct
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "E:\workspace\webAutomationSelenium\AssignmentSecond\LoadYoutube.py", line 21, in test_FacebookTest
-    password = driver.find_element_by_id("pas")
+  File "E:\workspace\webAutomationSelenium\AssignmentSecond\LoadYoutube.py", line 35, in test_FacebookTest_correct
+    password = driver.find_element_by_id("pas")  # ("pass")
   File "C:\Anaconda\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 360, in find_element_by_id
     return self.find_element(by=By.ID, value=id_)
   File "C:\Anaconda\Anaconda3\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
@@ -23,11 +24,11 @@ selenium.common.exceptions.NoSuchElementException: Message: no such element: Una
 
 
 ----------------------------------------------------------------------
-Ran 2 tests in 0:00:34
+Ran 3 tests in 0:00:51
 
 FAILED
  (Errors=1)
 
 Generating HTML reports... 
-reports\TestResults_AssignmentSecond.TestCaseFirst.TestOpeningGoogle_2020-04-16_22-03-46.html
-reports\TestResults_AssignmentSecond.LoadYoutube.LaunchFacebook_2020-04-16_22-03-46.html
+reports\TestResults_AssignmentSecond.TestCaseFirst.TestOpeningGoogle_2020-04-17_11-02-53.html
+reports\TestResults_AssignmentSecond.LoadYoutube.LaunchFacebook_2020-04-17_11-02-53.html
