@@ -60,7 +60,7 @@ def append_to_excel(calculated_results):
     """
     number_of_subjects = 5
     total, percent, result = calculated_results
-    rb = xlrd.open_workbook("results.xls")
+    rb = xlrd.open_workbook("marks.xls")
     r_sheet = rb.sheet_by_index(0)
     c = r_sheet.ncols  # number of columns
     wb = copy(rb)
@@ -74,7 +74,7 @@ def append_to_excel(calculated_results):
     sheet.write(0, c + 2, "Result")  # Add the column 'Result' at the end in excel sheet
     for each_result_value, index in zip(result, range(1, number_of_subjects + 1)):
         sheet.write(index, c + 2, each_result_value)
-    wb.save("results.xls")
+    wb.save("marks.xls")
     print('Saved excel sheet successfully.')
 
 
