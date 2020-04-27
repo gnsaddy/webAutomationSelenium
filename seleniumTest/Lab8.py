@@ -5,26 +5,29 @@ import xlrd
 from selenium import webdriver
 from xlutils.copy import copy
 
-excel_file_name = "marks.xls"
+excel_file_name = "results.xls"
 student_marks_html_page = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/student.html"
 
 
-def read_from_excel(path):
-    book = xlrd.open_workbook(path)
+def read_from_excel(excelFile):
+    book = xlrd.open_workbook(excelFile)
     first_sheet = book.sheet_by_index(0)  # read the first sheet
+    print(first_sheet.nrows)
+    print(first_sheet.ncols)
     marks_dictionary = OrderedDict()
-    for each_name, index in zip(first_sheet.col_values(0, 1), range(1, first_sheet.row_len(0))):
+    for each_name, index in zip(first_sheet.col_values(0, 1), range(1, first_sheet.nrows)):
         each_rows = first_sheet.row_values(index, 1)
         marks_dictionary[str(each_name)] = each_rows
+    print(marks_dictionary)
     return marks_dictionary
 
 
 def calculate_result(driver, marks_dictionary):
     # Send dictionary keys and values to browser inputs.
-    number_of_subjects = 5
+    number_of_rows = 10
     student_name_objects = driver.find_elements_by_xpath("//*[@id='student_name']")
     marks_objects = driver.find_elements_by_class_name("marks")
-    for (each_item_key, values), index in zip(marks_dictionary.items(), range(0, number_of_subjects)):
+    for (each_item_key, values), index in zip(marks_dictionary.items(), range(0, number_of_rows)):
         student_name_objects[index].send_keys(each_item_key)
         for each_marks, index_value in zip(values, range(0, len(values))):
             marks_objects[0].send_keys(str(each_marks))
@@ -56,25 +59,25 @@ def get_total_percentage_result(driver):
 
 def append_to_excel(calculated_results):
     """
-    Appends total, percentage, result to excel sheet.
-    """
-    number_of_subjects = 5
+   Appends total, percentage, result to excel sheet.
+   """
+    number_of_students = 10
     total, percent, result = calculated_results
-    rb = xlrd.open_workbook("marks.xls")
+    rb = xlrd.open_workbook(excel_file_name)
     r_sheet = rb.sheet_by_index(0)
     c = r_sheet.ncols  # number of columns
     wb = copy(rb)
     sheet = wb.get_sheet(0)
     sheet.write(0, c, "Total")  # Add the column 'Total' at the end in excel sheet
-    for each_total_value, index in zip(total, range(1, number_of_subjects + 1)):
+    for each_total_value, index in zip(total, range(1, number_of_students + 1)):
         sheet.write(index, c, each_total_value)
     sheet.write(0, c + 1, "Percentage")  # Add the column 'Percentage' at the end in excel sheet
-    for each_percent_value, index in zip(percent, range(1, number_of_subjects + 1)):
+    for each_percent_value, index in zip(percent, range(1, number_of_students + 1)):
         sheet.write(index, c + 1, each_percent_value)
     sheet.write(0, c + 2, "Result")  # Add the column 'Result' at the end in excel sheet
-    for each_result_value, index in zip(result, range(1, number_of_subjects + 1)):
+    for each_result_value, index in zip(result, range(1, number_of_students + 1)):
         sheet.write(index, c + 2, each_result_value)
-    wb.save("marks.xls")
+    wb.save(excel_file_name)
     print('Saved excel sheet successfully.')
 
 
