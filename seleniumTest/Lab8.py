@@ -1,7 +1,6 @@
 import time
 import unittest
 from collections import OrderedDict
-import HtmlTestRunner
 import xlrd
 from selenium import webdriver
 from xlutils.copy import copy
@@ -101,4 +100,4 @@ if __name__ == "__main__":
 
     append_to_excel(calculation_results)
     print("Closing the browser")
-    unittest.main(unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='E:/workspace/webAutomationSelenium/Reports')))
+    unittest.main()

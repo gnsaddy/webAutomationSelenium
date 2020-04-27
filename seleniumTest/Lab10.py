@@ -1,5 +1,6 @@
+import time
+
 from selenium import webdriver
-import os, time
 
 employee_source_file = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/Emp1.html"
 employee_destin_file = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/Emp2.html"
