@@ -16,22 +16,22 @@
     <link rel="manifest" href="/manifest.json">
     <script>
         function calculate() {
-            marks_objects = document.getElementsByClassName("marks");
-            total_objects = document.getElementsByClassName("total");
-            percentage_objects = document.getElementsByClassName("percentage");
-            result_objects = document.getElementsByClassName("result");
-            i = 0;
-            for (j = 0; j < 10; j++) {
-                start = i;
-                end = (i + 5);
-                total = 0.0;
+            let marks_objects = document.getElementsByClassName("marks");
+            let total_objects = document.getElementsByClassName("total");
+            let percentage_objects = document.getElementsByClassName("percentage");
+            let result_objects = document.getElementsByClassName("result");
+            let i = 0;
+            for (let j = 0; j < 10; j++) {
+                let start = i;
+                let end = (i + 5);
+                let total = 0.0;
                 for (i = start; i < end; i++) {
-                    temp = marks_objects[i].value;
+                    let temp = marks_objects[i].value;
                     total = +total + +marks_objects[i].value;
                 }
                 total_objects[j].setAttribute('value', total);
 
-                percentage = ((100 * total) / 500);
+                let percentage = ((100 * total) / 500);
                 percentage_objects[j].setAttribute('value', percentage + "%");
 
                 if (percentage >= 0 && percentage < 50)

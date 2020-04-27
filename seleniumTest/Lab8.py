@@ -1,33 +1,37 @@
 import time
+import unittest
 from collections import OrderedDict
-
+import HtmlTestRunner
 import xlrd
 from selenium import webdriver
 from xlutils.copy import copy
 
 excel_file_name = "results.xls"
 student_marks_html_page = "https://gnsaddy.github.io/webAutomationSelenium/seleniumTest/student.html"
+driver = webdriver.Chrome("../Drivers/x32/chromedriver.exe")
+driver.maximize_window()
 
 
 def read_from_excel(excelFile):
     book = xlrd.open_workbook(excelFile)
     first_sheet = book.sheet_by_index(0)  # read the first sheet
-    print(first_sheet.nrows)
-    print(first_sheet.ncols)
-    marks_dictionary = OrderedDict()
+    print("Number of rows ", first_sheet.nrows)
+    print("Number of columns ", first_sheet.ncols)
+    print("Col Schema/names: ", first_sheet.col_values(0, 1))
+
+    marks_dict = OrderedDict()
     for each_name, index in zip(first_sheet.col_values(0, 1), range(1, first_sheet.nrows)):
         each_rows = first_sheet.row_values(index, 1)
-        marks_dictionary[str(each_name)] = each_rows
-    print(marks_dictionary)
-    return marks_dictionary
+        marks_dict[str(each_name)] = each_rows
+    return marks_dict
 
 
-def calculate_result(driver, marks_dictionary):
+def calculate_result(ch_driver, marks_dict):
     # Send dictionary keys and values to browser inputs.
     number_of_rows = 10
-    student_name_objects = driver.find_elements_by_xpath("//*[@id='student_name']")
-    marks_objects = driver.find_elements_by_class_name("marks")
-    for (each_item_key, values), index in zip(marks_dictionary.items(), range(0, number_of_rows)):
+    student_name_objects = ch_driver.find_elements_by_xpath("//*[@id='student_name']")
+    marks_objects = ch_driver.find_elements_by_class_name("marks")
+    for (each_item_key, values), index in zip(marks_dict.items(), range(0, number_of_rows)):
         student_name_objects[index].send_keys(each_item_key)
         for each_marks, index_value in zip(values, range(0, len(values))):
             marks_objects[0].send_keys(str(each_marks))
@@ -37,11 +41,11 @@ def calculate_result(driver, marks_dictionary):
     print("Clicked on calculate!")
 
 
-def get_total_percentage_result(driver):
+def get_total_percentage_result(ch_driver):
     time.sleep(5)
-    total_objects = driver.find_elements_by_class_name("total")
-    percentage_objects = driver.find_elements_by_class_name("percentage")
-    result_objects = driver.find_elements_by_class_name("result")
+    total_objects = ch_driver.find_elements_by_class_name("total")
+    percentage_objects = ch_driver.find_elements_by_class_name("percentage")
+    result_objects = ch_driver.find_elements_by_class_name("result")
     total = []
     percent = []
     result = []
@@ -81,22 +85,20 @@ def append_to_excel(calculated_results):
     print('Saved excel sheet successfully.')
 
 
-if __name__ == '__main__':
-    # driver.quit()
+# function calls
+
+if __name__ == "__main__":
     marks_dictionary = read_from_excel(excel_file_name)
     print(marks_dictionary)
 
-driver = webdriver.Chrome("../Drivers/x32/chromedriver.exe")
-# driver.maximize_window()
+    path = student_marks_html_page
+    driver.get(path)  # load web page
+    time.sleep(4)
 
-path = student_marks_html_page
-driver.get(path)  # load web page
-time.sleep(4)
+    calculate_result(driver, marks_dictionary)
 
-calculate_result(driver, marks_dictionary)
+    calculation_results = get_total_percentage_result(driver)
 
-calculation_results = get_total_percentage_result(driver)
-
-append_to_excel(calculation_results)
-print("Closing the browser")
-driver.quit()
+    append_to_excel(calculation_results)
+    print("Closing the browser")
+    unittest.main(unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='E:/workspace/webAutomationSelenium/Reports')))

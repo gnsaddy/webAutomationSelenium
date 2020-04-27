@@ -5,6 +5,7 @@ from selenium import webdriver
 
 chromeDriver = "../Drivers/x32/chromedriver.exe"
 
+
 class LoginTest(unittest.TestCase):
 
     def setUp(self):
