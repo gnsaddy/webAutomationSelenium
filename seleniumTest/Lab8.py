@@ -102,6 +102,6 @@ if __name__ == "__main__":
 
     append_to_excel(calculation_results)
     print("Closing the browser")
-    unittest.main()
     driver.quit()
+    unittest.main()
 

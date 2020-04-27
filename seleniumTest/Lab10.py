@@ -1,4 +1,5 @@
 import time
+import unittest
 
 from selenium import webdriver
 
@@ -86,3 +87,4 @@ if __name__ == "__main__":
     # quit the driver if required.
     driver_destin.quit()
     driver_source.quit()
+    unittest.main()

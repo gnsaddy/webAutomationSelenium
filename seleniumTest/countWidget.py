@@ -1,8 +1,10 @@
 import time
 import unittest
+
+import HtmlTestRunner
+
 from selenium.webdriver.support.ui import Select
 from selenium import webdriver
-
 
 chromeDriver = "../Drivers/x32/chromedriver.exe"
 
@@ -74,5 +76,7 @@ class countWidget(unittest.TestCase):
         self.driver.quit()
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == '__main__':
+    unittest.main(
+        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+            output='E:/workspace/webAutomationSelenium/Reports')))

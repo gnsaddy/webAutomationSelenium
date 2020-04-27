@@ -1,6 +1,8 @@
 import os
 import unittest
 import time
+
+import HtmlTestRunner
 from selenium import webdriver
 
 chromeDriver = "../Drivers/x32/chromedriver.exe"
@@ -99,5 +101,7 @@ class LoginTest(unittest.TestCase):
         self.driver.quit()
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == '__main__':
+    unittest.main(
+        unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(
+            output='E:/workspace/webAutomationSelenium/Reports')))
