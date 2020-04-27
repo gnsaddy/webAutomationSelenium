@@ -64,7 +64,7 @@ def append_to_excel(calculated_results):
     """
    Appends total, percentage, result to excel sheet.
    """
-    number_of_students = 10
+    number_of_rows = 10
     total, percent, result = calculated_results
     rb = xlrd.open_workbook(excel_file_name)
     r_sheet = rb.sheet_by_index(0)
@@ -72,13 +72,13 @@ def append_to_excel(calculated_results):
     wb = copy(rb)
     sheet = wb.get_sheet(0)
     sheet.write(0, c, "Total")  # Add the column 'Total' at the end in excel sheet
-    for each_total_value, index in zip(total, range(1, number_of_students + 1)):
+    for each_total_value, index in zip(total, range(1, number_of_rows + 1)):
         sheet.write(index, c, each_total_value)
     sheet.write(0, c + 1, "Percentage")  # Add the column 'Percentage' at the end in excel sheet
-    for each_percent_value, index in zip(percent, range(1, number_of_students + 1)):
+    for each_percent_value, index in zip(percent, range(1, number_of_rows + 1)):
         sheet.write(index, c + 1, each_percent_value)
     sheet.write(0, c + 2, "Result")  # Add the column 'Result' at the end in excel sheet
-    for each_result_value, index in zip(result, range(1, number_of_students + 1)):
+    for each_result_value, index in zip(result, range(1, number_of_rows + 1)):
         sheet.write(index, c + 2, each_result_value)
     wb.save(excel_file_name)
     print('Saved excel sheet successfully.')
