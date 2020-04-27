@@ -17,6 +17,7 @@ def read_from_excel(excelFile):
     print("Number of rows ", first_sheet.nrows)
     print("Number of columns ", first_sheet.ncols)
     print("Col Schema/names: ", first_sheet.col_values(0, 1))
+    print("Col Schema/names: ", first_sheet.row_values(0, 1))
 
     marks_dict = OrderedDict()
     for each_name, index in zip(first_sheet.col_values(0, 1), range(1, first_sheet.nrows)):
@@ -87,6 +88,7 @@ def append_to_excel(calculated_results):
 # function calls
 
 if __name__ == "__main__":
+
     marks_dictionary = read_from_excel(excel_file_name)
     print(marks_dictionary)
 
@@ -101,3 +103,5 @@ if __name__ == "__main__":
     append_to_excel(calculation_results)
     print("Closing the browser")
     unittest.main()
+    driver.quit()
+
