@@ -79,10 +79,6 @@ def append_to_excel(calculated_results):
 
 
 if __name__ == '__main__':
-    # open chrome driver
-    # calculate the results through selenium
-    # read calculated results through selenium
-    # Append the result in excel sheet
     # driver.quit()
     marks_dictionary = read_from_excel(excel_file_name)
     print(marks_dictionary)
