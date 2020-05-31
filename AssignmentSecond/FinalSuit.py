@@ -20,11 +20,15 @@ class MyTestSuite(unittest.TestCase):
 
         outfile = open(direct + "./SmokeTest.html", "w")
 
-        HtmlTestRunner.HTMLTestRunner(
+        runner1 = HtmlTestRunner.HTMLTestRunner(
             stream=outfile,
             report_title='Test Report',
-            descriptions=True
-        ).run(smoke_test)
+            descriptions=True,
+            output='E:/workspace/webAutomationSelenium/AssignmentSecond/reports',
+
+        )
+
+        runner1.run(smoke_test)
 
 
 if __name__ == '__main__':
